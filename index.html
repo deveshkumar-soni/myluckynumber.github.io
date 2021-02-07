@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Numberojoy</title>
+     <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="style/main.css">
+    
+ 
+</head>
+<body style="background-image: url('images/background.jpg');background-repeat: no-repeat;height:100%;background-size: cover;">
+<div class="padding50">
+</div>
+<div>
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-6" style="color:white;">
+		<h1>A motivational speaker can motivate you for a while but not for long until your planets are aligned and motivated.
+		So to be motivated and elevate your life, get the right vibration in your life.
+		Just type in your date of birth and see if you have your numbers right!!!</h1>
+		</div>
+	<div class="col-md-4 form-block-1" style="color:white;">
+			<form role="form" method="post" action="" autocomplete="off">
+				<h2 style="color:white;">CALCULATOR</h2>
+       		   <div class="form-group">
+				 <label for="Name"> Full Name:</label>
+					<input type="text" name="Name" id="Name" class="form-control input-lg" placeholder="Full Name"  tabindex="1">
+				</div>
+				<div class="form-group">
+					<label for="DOB">Date of Birth:</label>
+					<input type="text" name="DOB" id="DOB" class="form-control input-lg" placeholder="Date of Birth"   tabindex="2">
+				</div> 
+					<fieldset class="form-group">
+							<div class="row">
+							<label class="col-form-label col-sm-2 pt-0 " >Gender</label>
+								<div class="col-sm-10">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Male" tabindex="3">
+										<label class="form-check-label" for="gridRadios1">
+											Male
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Female" tabindex="4">
+										<label class="form-check-label" for="gridRadios2">
+											Female
+										</label>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+				<div class="form-group">
+				<label for="email"> Email:</label>
+					<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address"  tabindex="5">
+				</div>
+				<div class="form-group">
+			 	<label for="MobileNo">  Mobile Number:</label>
+					<input type="number" name="MobileNo" id="MobileNo" class="form-control input-lg" placeholder="Mobile Number"  onkeypress="return isNumber(event)"  tabindex="6">
+				</div>
+					
+				<div class="row">
+					<div class="col-xs-6 col-md-6"><input type="button" name="submit" value="Calculate" class="btn btn-primary btn-block btn-lg" tabindex="7" onClick="return onSubmit(event)"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="resultsection" style="display:none;">
+	<div class="row" style="color:white;" >
+	<div class="col-md-4">
+	<table class="table">
+	<tr ><td style="background-color:red;text-align:center;font-weight:700px" colspan="2">NUMEROSCOPE</td></tr>
+	<tr><td colspan="2" align="center">
+		<table class="table" id="numeroscope" style="background-color:transparent;width:50%;text-align:center;">
+		</table>
+		</td>
+		</tr>
+		</table>
+		</div>
+		</div>
+		<div class="row" style="color:white;" >
+		<table class="table" >
+		<tr>
+		<td><h1>Strength</h1></td>
+	    <td>
+		<ul id="strengthsection">
+		</ul>
+		</td>
+		</tr>
+		<tr>
+		<td><h1>Weakness</h1></td>
+	    <td>
+		<ul id="weaksection">
+		</ul>
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<h1>Lucky Number</h1>
+		</td>
+		<td  id="luckynumber">
+		</td>
+		</tr>
+		<tr>
+		<td>
+		<h1>UnLucky Number</h1>
+		</td>
+		<td id="unluckynumber">
+		</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-md-6"><input type="button" name="remedy" id="remedy" value="For Remedy pay 101/- Rs" class="btn btn-primary btn-block btn-lg" tabindex="8" onClick="return onShowRemedy(event)"></div>
+	</div>
+</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="js/jquery-2.1.1.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.prettyPhoto.js"></script>
+  <script src="js/jquery.isotope.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/functions.js"></script>
+</body>
+</html>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+	var d=0,m=0,y=0,arrday=[],arrm=[],arry=[],drive=0,c=0,k=0,arrfull=[],ms=[],isdrive=false;
+var resultdata=JSON.parse(`[
+{"ID":"1","Description":"Authenticity","Pos":"You are a decision makers of your life","Neg":"You lack confidence & dependent for making decision","RemedyID":"Drink lot of water","Friends":"1,2,3,5,6,9","NonFriends":"8"},
+{"ID":"2","Description":"Emotion","Pos":"You value emotions","Neg":"Emotions are missing or hurting you the most","RemedyID":"Clear cystral bead bracelet","Friends":"1,2,3,5","NonFriends":"4,8,9"},
+{"ID":"3","Description":"Vision of Life","Pos":"You are crystal clear about your life vision","Neg":"Vision in life is missing or not clear","RemedyID":"Wood bead bracelet","Friends":"1,2,3,5,7","NonFriends":"6"},
+{"ID":"4","Description":"Focus","Pos":"You are focused on things in your life","Neg":"Focus is getting distracted","RemedyID":"Wood bead bracelet","Friends":"1,4,5,6,7,8","NonFriends":"2,4,8,9"},
+{"ID":"5","Description":"Wisdom","Pos":"You have complete balance in life","Neg":"Wisdom is missing disturbing balance in life","RemedyID":"Clear cystral bead bracelet","Friends":"1,2,3,5,6","NonFriends":""},
+{"ID":"6","Description":"Luxury","Pos":"You enjoy luxury in life","Neg":"You are not able to enjoy luxuries","RemedyID":"Gold silver combination strip watch","Friends":"1,5,6,7","NonFriends":"3"},
+{"ID":"7","Description":"Contentment in life","Pos":"You have in satisfied & happy with life","Neg":"You are not happy and unsatisfied in life","RemedyID":"Gold watch","Friends":"1,3,4,5,6","NonFriends":""},
+{"ID":"8","Description":"Hardwork","Pos":"Your hardwork is appreciated & rewarded","Neg":"Your hardwork get unnoticed and unrewarded","RemedyID":"Clear cystral bead bracelet","Friends":"3,4,5,6,7,8","NonFriends":"1,2,4,8"},
+{"ID":"9","Description":"Urge\/Desire","Pos":"You have urge\/desire for everything in life","Neg":"Your don't have urge\/desire for doing or achieving things in life","RemedyID":"Red thread","Friends":"1,3,5","NonFriends":"2,4"}
+]`)
+  $( function() {
+    $( "#DOB" ).datepicker({
+		changeMonth: true,
+		  changeYear: true,
+		  dateFormat: 'dd/mm/yy',
+    	onSelect: function(dateText, inst) {
+               
+            }
+     }); 
+  });
+  function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+function validateDOB()
+{
+    var dob = $('#DOB').val();
+	var pattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+    if (!pattern.test(dob)) {
+        return false;
+    }
+    else {
+        return true
+    }
+}
+  function onShowRemedy(e){
+    alert("Remedy suggested below:"+getRemedy(ms,resultdata))
+  }
+	function onSubmit(e){
+		if($('#Name').val()==''){
+			alert('Please enter Full Name');
+			return false;
+		} else if($('#DOB').val()==''){
+			alert('Please select Date of Birth');
+			return false;
+		} else if (!validateDOB()){
+			alert("Invalid date of birth.Please enter in DD/MM/YYYY format");
+			return false;
+		} 
+		else if($('input[name=gridRadios]:checked').val()==undefined){
+			alert('Please select Gender');
+			return false;
+		} else if($('#email').val()==''){
+			alert('Please enter Email');
+			return false;
+		}else if(!isValidEmailAddress($('#email').val())){
+			alert('Please enter valid Email');
+			return false;
+		} else if($('#MobileNo').val()==''){
+			alert('Please enter Mobile Number');
+			return false;
+		}
+		d=0,m=0,y=0,arrday=[],arrm=[],arry=[],drive=0,c=0,k=0,arrfull=[],ms=[];
+		calNumeroscope();
+		if($('input[name=gridRadios]:checked').val()=='Male'){
+			k=getSum(getNumbers(11-getSum(arry)))
+		}else{
+			k=getSum(getNumbers(4+getSum(arry)))
+		}
+		$('#resultsection').css('display','block')
+		arrfull.push(k)
+		document.getElementById("numeroscope").innerHTML=getNumeroscope(arrfull)
+		document.getElementById("strengthsection").innerHTML=getPos(arrfull,resultdata)
+		document.getElementById("weaksection").innerHTML=getNeg(ms,resultdata)
+		var cd=[drive,c]
+		document.getElementById("luckynumber").innerHTML=getLuckyNumber(cd,resultdata)
+		document.getElementById("unluckynumber").innerHTML=getUnLuckyNumber(cd,resultdata)
+		$('html, body').animate({
+         scrollTop: $("#numeroscope").offset().top
+        }, 1500);
+       return false;
+	}
+	function uniqueArray(n){
+		return n.filter(function(item, pos) {
+         return n.indexOf(item) == pos;
+        });
+	}
+	function getList(n,d){
+		let s1=uniqueArray(n)
+		return uniqueArray(s1.map(i=>{
+		return '<li>'+d.filter(x=>x.ID==i)[0].Description+'</li>'
+		}
+		)).join("")
+	}
+	function getPos(n,d){
+		let s1=uniqueArray(n).sort()
+		return uniqueArray(s1.map(i=>{
+		return '<li>'+d.filter(x=>x.ID==i)[0].Pos+'</li>'
+		}
+		)).join("")
+	}
+	function getNeg(n,d){
+		let s1=uniqueArray(n).sort()
+		return uniqueArray(s1.map(i=>{
+		return '<li>'+d.filter(x=>x.ID==i)[0].Neg+'</li>'
+		}
+		)).join("")
+	}
+	function getLuckyNumber(n,d){
+		 let s1=n.map(i=>{
+		return  d.filter(x=>x.ID==i)[0].Friends
+		}).join(",")
+	   return getDulpicate(s1.split(",")).sort().join(",")
+		
+	}
+	function getUnLuckyNumber(n,d){
+		 let s1=n.map(i=>{
+		return  d.filter(x=>x.ID==i)[0].NonFriends
+		}).sort().join(",")
+	   return uniqueArray(s1.split(",")).filter((item) => item != '').sort().join(",")
+		
+	}
+	function getDulpicate(n){
+		var duplicates = n.reduce(function(acc, el, i, arr) {
+ 	 if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el); return acc;
+		}, []);
+		return duplicates;
+	}
+	function getRemedy(n,d){
+		let s1=uniqueArray(n)
+		return uniqueArray(s1.map(i=>{
+		return '\n'+d.filter(x=>x.ID==i)[0].RemedyID;
+		})).join("")
+	}
+	function getNumbers(n){
+		n=String(n)
+		var arr=[];
+		for(var i=0;i<=n.length-1;i++){
+			var num=Number(n.substr(i,1))
+				if(num>0)
+				arr.push(num)
+		}
+		return arr;
+	}
+	function getSum(n){
+		var s=0;
+		if(n.length==0){
+			return s;
+		}
+		if(n.length==1){
+			return n[0]
+		}
+		for(var i=0;i<=n.length-1;i++){
+			s=s+n[i]
+		}
+		return getSum(getNumbers(s));
+	}
+	function getNumeroscope(n){
+		var tbody=`<tbody>
+		<tr>
+				<td>
+				${checkNumberAndReturn(n,4)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,9)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,2)}
+				</td>
+		</tr>
+        <tr>
+				<td>
+				${checkNumberAndReturn(n,3)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,5)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,7)}
+				</td>
+		</tr>
+		<tr>
+				<td>
+				${checkNumberAndReturn(n,8)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,1)}
+				</td>
+				<td>
+				${checkNumberAndReturn(n,6)}
+				</td>
+		</tr>
+		</tbody>`
+		return tbody;
+	}
+	function checkNumberAndReturn(x,n){
+		var num=String(x.filter(y=>y==n))
+		if(isdrive && n==drive){
+         return drive;
+		}
+		else if(num.length!=0){
+		return num.replaceAll(',','');
+		}else {
+			ms.push(n);
+		}
+		return "&nbsp;";		
+	}
+	function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+    }
+	function calNumeroscope(){
+		var date = $('#DOB').datepicker('getDate'),
+                    d = date.getDate(),
+                    m = date.getMonth() + 1,
+                    y =  date.getFullYear();
+					if((d>=1 && d<=10) || d==20 || d==30){
+						isdrive=true;
+					}
+										arrday=getNumbers(d)
+										arrm=getNumbers(m)
+										arry=getNumbers(y)
+										drive=getSum(arrday);
+										arrfull=arrday.concat(arrm).concat(arry)
+										c=getSum(arrfull);
+										arrfull.push(drive)
+										arrfull.push(c)
+	}
+  </script>
